@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543062139621.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F87A7343",
+    "lastKnownWriteTime" : 1543062135,
+    "last_content_update" : 1543062135,
+    "path" : "D:/00-Pessoal/09-MOOCs/01-Coursera/14-JHS-Mastering-Software-Development-R/Course4/Week4/themeahu/R/hello.R",
+    "project_path" : "R/hello.R",
+    "properties" : {
+        "cursorPosition" : "18,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
