@@ -1,0 +1,100 @@
+---
+title: "Examples"
+author: "AH Uyekita"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Requirement
+
+To perform this vignette you should load these packages:
+
+```{r,message=FALSE,warning=FALSE}
+library(geomhurricane)
+library(dplyr)
+library(tidyr)
+library(lubridate)
+library(ggplot2)
+library(ggmap)
+```
+
+# Loading Dataset
+
+The data loading will be performed by the `data_import()` function and `data_manipulation()`.
+
+Each of these function has your own _vignette_.
+
+```{r}
+# Importing the data set
+storm_observation <- data_manipulation(data_import()) # Default path    : Documents
+                                                      # Default archive : ebtrk_atlc_1988_2017.txt
+
+head(storm_observation,10) # Shows the first 10 rows.
+```
+
+#### Example: Katrina 2005 (2005-08-29 12:00)
+
+```{r}
+# Subsetting the storm_observation to find the specific hurricane.
+storm_observation %>% filter(storm_id %in% "KATRINA-2005",
+                             date %in% ymd_hm("2005-08-29-12-00")) -> katrina
+
+# Print the rows
+katrina
+```
+
+## Using the `geom_hurricane`
+
+
+### Example solo (without background map)
+
+```{r}
+ggplot() +
+       geom_hurricane(data = katrina,aes(x = longitude, y = latitude,
+                                         r_ne = ne, r_se = se, r_nw = nw, r_sw = sw,
+                                         fill = wind_speed, color = wind_speed)) + 
+
+
+scale_color_manual(name = "Wind speed (kts)",
+                   values = c("red", "orange", "yellow")) +
+       scale_fill_manual(name = "Wind speed (kts)",
+                         values = c("red", "orange", "yellow"))
+```
+
+### Example with map
+
+```{r,cache=TRUE}
+
+register_google(key = "AIzaSyB0fKSElDN-a0LpvhvvWlFNP5CWCFf3jZM")
+
+# Google Maps
+get_map("Louisiana",
+        zoom = 6,
+        maptype = "toner-background") %>%
+       
+       ggmap(extent = "device") -> base_map
+
+base_map +
+       geom_hurricane(data = katrina, aes(x = longitude, y = latitude,
+                                          r_ne = ne, r_se = se,
+                                          r_nw = nw, r_sw = sw,
+                                          fill = wind_speed,
+                                          color = wind_speed)) +
+       scale_color_manual(name = "Wind speed (kts)",
+                          values = c("red", "orange", "yellow")) +
+       scale_fill_manual(name = "Wind speed (kts)",
+                         values = c("red", "orange", "yellow"))
+```
+
+
