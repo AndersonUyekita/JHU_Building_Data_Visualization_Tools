@@ -5,35 +5,38 @@
 #  Date   :  2018-nov-24                                               #
 #                                                                      #
 ########################################################################
+
 #' The geom_hurricane function aims to plot a new form of data visualization, based on Wind Radius Speed
 #' this geom will plot a graphich with "rose" format which will represent the area of the wind speed. All
 #' plot must be created from a ggplot2 or ggmaps graphic.
 #'
-#' @param Geom_harry_kane pirir
+#' @param mapping pirir
 #'
-#' @param required_aes p irir
+#' @param data p irir
 #'
-#' @param default_aes pirir
+#' @param stat pirir
 #'
-#' @param draw_key pirir
+#' @param na.rm pirir
 #'
-#' @param draw_group pirir
+#' @param show.legend  pirir
+#'
+#' @param inherit.aes pirir
 #'
 #' @return The output of this geom will be a pie style of graphic varying the radius to show the intense
 #'         of the wind speed.
 #'
-#' @importFrom ggplot2 ggproto aes draw_key_polygon Geom layer
-#'
-#' @importFrom geosphere destPoint
-#'
-#' @importFrom grid polygonGrob gpar
-#'
+#' @importFrom ggplot2 layer
 #'
 #' @examples
 #'
-#' \dontrun{data_manipulation("ebtrk_atlc_1988_2015.txt")}
-#'
-#' \dontrun{data_manipulation("ebtrk_atlc_1988_2017.txt")}
+#' \dontrun{ggplot() + geom_hurricane(data, aes(x = longitude,
+#'                                              y = latitude,
+#'                                              r_ne = ne,
+#'                                              r_se = se,
+#'                                              r_nw = nw,
+#'                                              r_sw = sw,
+#'                                              fill = wind_speed,
+#'                                              color = wind_speed))}
 #'
 #' @export
 # Default functions

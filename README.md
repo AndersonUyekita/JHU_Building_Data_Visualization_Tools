@@ -7,20 +7,6 @@ Peer-graded Assignment: Build a New Geom
 
 In this project I have created a new `geom_*` of the `ggplot2` package. This `geom_*` offers a new approach of data visualization.
 
-Installation
-------------
-
-You can install the released version of `geomhurricane` from XXXXXXXXXXX.
-
-``` r
-install.packages("geomhurricane")
-```
-
-Example
--------
-
-You can access the *vignettes* to read a complete example.
-
 Development of a `geom_*`
 -------------------------
 
@@ -823,8 +809,8 @@ As the name says, what is the requerid aesthetics to perform this plot. Requirem
 # Requeriments 
 required_aes = c("x",   # x = longitude
                "y",     # y = latitude
-               "r_ne",  # Northest radius
-               "r_se",  # Southest radius
+               "r_ne",  # Northeast radius
+               "r_se",  # Southeast radius
                "r_sw",  # Southwest radius
                "r_nw")  # Northwest readius
 ```
@@ -945,7 +931,6 @@ GeomHurricane <- ggplot2::ggproto("GeomHurricane",
                               coord) {
 # Creating a data frame
 df_hurricane <- dplyr::as_tibble()
-df_temp      <- dplyr::as_tibble()
 center       <- dplyr::as_tibble()
 
 # Adding new columns to de data
@@ -953,9 +938,8 @@ data %>% dplyr::mutate(fill = fill,     # Creating columns to assign variables
                        colour = colour) #
 
 # Center of the hurricane
-data %>% 
-       dplyr::select(lon = x,           # longitude
-                     lat = y) -> center # latitude
+data %>% dplyr::select(lon = x,           # longitude
+                       lat = y) -> center # latitude
 
 # Calculating the area/radius
 data %>% dplyr::select(r_ne,       # 

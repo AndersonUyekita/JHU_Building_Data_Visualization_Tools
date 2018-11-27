@@ -11,15 +11,17 @@ geom_hurricane(mapping = NULL, data = NULL, stat = "identity",
   inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{Geom_harry_kane}{pirir}
+\item{mapping}{pirir}
 
-\item{required_aes}{p irir}
+\item{data}{p irir}
 
-\item{default_aes}{pirir}
+\item{stat}{pirir}
 
-\item{draw_key}{pirir}
+\item{na.rm}{pirir}
 
-\item{draw_group}{pirir}
+\item{show.legend}{pirir}
+
+\item{inherit.aes}{pirir}
 }
 \value{
 The output of this geom will be a pie style of graphic varying the radius to show the intense
@@ -32,8 +34,13 @@ plot must be created from a ggplot2 or ggmaps graphic.
 }
 \examples{
 
-\dontrun{data_manipulation("ebtrk_atlc_1988_2015.txt")}
-
-\dontrun{data_manipulation("ebtrk_atlc_1988_2017.txt")}
+\dontrun{ggplot() + geom_hurricane(data, aes(x = longitude,
+                                             y = latitude,
+                                             r_ne = ne,
+                                             r_se = se,
+                                             r_nw = nw,
+                                             r_sw = sw,
+                                             fill = wind_speed,
+                                             color = wind_speed))}
 
 }

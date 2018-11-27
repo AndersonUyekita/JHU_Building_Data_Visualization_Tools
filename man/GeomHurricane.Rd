@@ -3,14 +3,14 @@
 \docType{data}
 \name{GeomHurricane}
 \alias{GeomHurricane}
-\title{Creating a new class of Geom. This new class specifies a number of attributes and
+\title{Creating a new class of Geom to specifies a number of attributes and
 functions that describe how data should be drawn on a plot.}
 \format{An object of class \code{GeomHurricane} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 5.}
 \usage{
 GeomHurricane
 }
 \arguments{
-\item{Geom_harry_kane}{pirir}
+\item{GeomHurricane}{This is the Geom name created to perform my needs}
 
 \item{required_aes}{a character vector of required aesthetics}
 
@@ -18,14 +18,14 @@ GeomHurricane
 
 \item{draw_key}{a function used to draw the key in the legend}
 
-\item{draw_group}{pirir}
+\item{draw_group}{Function used to manipulate the data}
 }
 \value{
 The output of this geom will be a pie style of graphic varying the radius to show the intense
         of the wind speed.
 }
 \description{
-Creating a new class of Geom. This new class specifies a number of attributes and
+Creating a new class of Geom to specifies a number of attributes and
 functions that describe how data should be drawn on a plot.
 }
 \keyword{datasets}
